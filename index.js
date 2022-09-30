@@ -5,6 +5,8 @@ const app = express();
 app.use(express.json());
 app.use(require('./routes/genres.routes'));
 app.use(require('./routes/author.routes'));
+app.use(require('./routes/reviews.routes'));
+app.use(require('./routes/books.routes'));
 
 mongoose
     .connect("mongodb+srv://Is:lam@cluster0.7eomugg.mongodb.net/books")
