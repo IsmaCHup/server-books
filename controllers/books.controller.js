@@ -30,7 +30,7 @@ module.exports.booksController = {
     },
     editBook: async (req, res) => {
         try {
-            const updateBook = await Book.findByIdAndUpdate(req.params.id, {genres: req.body.genres}, {new: true});
+            const updateBook = await Book.findByIdAndUpdate(req.params.id, {name: req.body.name}, {new: true});
             res.json(updateBook);
         } catch (e) {
             res.json({error: "Ошибка при изменении"});
@@ -41,7 +41,7 @@ module.exports.booksController = {
         try {
             const getСurrentBook = await Book.findById(req.params.id)
                 .populate('genres', 'name -_id', 'Genre')
-                .populate('authors', 'name -_id', 'Author')
+                .populate('author', 'name -_id', 'Author')
                 .select('name -_id');
             res.json(getСurrentBook);
         } catch (e) {

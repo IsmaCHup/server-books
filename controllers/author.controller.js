@@ -4,8 +4,8 @@ module.exports.authorController = {
     addAuthor: async (req, res) => {
         try {
             const newAuthor = await Author.create({
-                name: "Baduev Said",
-                infoAboutAuthors: "born in Mehkety in 1942 years, wrote a many books and romans"
+                name: "Pushkin Alexsandr",
+                infoAboutAuthors: "born in Tolstoy-yrt in 1842 years, wrote a many books and romans"
             });
             res.json(newAuthor);
         }  catch (e) {

@@ -29,7 +29,7 @@ module.exports.genresController = {
     // - вывод всех жанров
     getGenres: async (req, res) => {
         try {
-            const allGenres = await Genre.find();
+            const allGenres = await Genre.find().select('name description -_id');
             res.json(allGenres);
         } catch (e) {
             res.json({ error: "Ошибка при выводе всех жанров" });
